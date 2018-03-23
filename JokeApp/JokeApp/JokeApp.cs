@@ -10,7 +10,7 @@ namespace JokeApp
         {
             //var tabsCs = new TabbedPage { Title = "ListView" };
             //tabsCs.Children.Add(new JokeList { Title = "Basic" });
-            MainPage = new JokeList();
+            MainPage = new NavigationPage(new JokeList());
         }
 
         protected override void OnStart()
