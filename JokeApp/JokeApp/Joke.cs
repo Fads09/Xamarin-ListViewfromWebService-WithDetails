@@ -12,11 +12,11 @@ namespace JokeApp
         {
 
         }
+    }
 
-        public class Value
-        {
-            public string joke { get; set; }
-            public List<object> categories { get; set; }
-        }
+    public class Value
+    {
+        public string joke { get; set; }
+        public List<object> categories { get; set; }
     }
 }

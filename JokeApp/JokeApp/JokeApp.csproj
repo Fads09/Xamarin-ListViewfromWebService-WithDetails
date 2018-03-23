@@ -32,6 +32,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JokeList.cs" />
     <Compile Include="Joke.cs" />
+    <Compile Include="JokeDetail.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

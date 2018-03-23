@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using static JokeApp.Joke;
@@ -22,6 +24,7 @@ namespace JokeApp
                 var jokeDisplay = new Joke();
                 ListView listViewJson = new ListView();
                 listViewJson.HasUnevenRows = true;
+                listViewJson.ItemSelected += listViewJson_ItemSelected;
                 if (json != "")
                 {
                     jokeDisplay = JsonConvert.DeserializeObject<Joke>(json);
@@ -37,13 +40,21 @@ namespace JokeApp
                 throw e;
             }
         }
+
+        private void listViewJson_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var item = e.SelectedItem as Value;
+
+            // Navigate to new page 
+            Navigation.PushAsync(new JokeDetail(item));
+        }
     }
 
     public class CustomCell : ViewCell
     {
         public CustomCell()
         {
-           
+
             Label lblJoke = new Label();
             lblJoke.LineBreakMode = LineBreakMode.TailTruncation;
             lblJoke.SetBinding(Label.TextProperty, "joke");
