@@ -41,12 +41,11 @@ namespace JokeApp
             }
         }
 
-        private void listViewJson_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        async private void listViewJson_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as Value;
 
-            // Navigate to new page 
-            Navigation.PushAsync(new JokeDetail(item));
+            await Navigation.PushAsync(new NavigationPage(new JokeDetail(item)));
         }
     }
 
