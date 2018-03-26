@@ -1,6 +1,6 @@
-﻿
-
-using System;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using static JokeApp.Joke;
@@ -9,6 +9,7 @@ namespace JokeApp
 {
     public class JokeList : ContentPage
     {
+        ObservableCollection<object> jokesCollection = new ObservableCollection<object>();         Joke jokeDisplay = new Joke();
         public JokeList()
         {
             GetJSON();
@@ -21,7 +22,7 @@ namespace JokeApp
                 var client = new System.Net.Http.HttpClient();
                 var response = await client.GetAsync("http://api.icndb.com/jokes");
                 string json = await response.Content.ReadAsStringAsync();
-                var jokeDisplay = new Joke();
+
                 ListView listViewJson = new ListView();
                 listViewJson.HasUnevenRows = true;
                 listViewJson.ItemSelected += listViewJson_ItemSelected;
@@ -32,7 +33,20 @@ namespace JokeApp
                 DataTemplate template = new
                 DataTemplate(typeof(CustomCell));
                 listViewJson.ItemTemplate = template;
-                listViewJson.ItemsSource = jokeDisplay.value;
+                listViewJson.ItemsSource = jokesCollection;
+
+                for (int i = 0; i < 11; i++ )
+                {
+                    jokesCollection.Add(jokeDisplay.value.ElementAt(i));
+                }
+
+                listViewJson.ItemAppearing += (object sender, ItemVisibilityEventArgs e) =>
+                {
+                    var viewCell = e.Item as object;
+                    var viewIndex = jokesCollection.IndexOf(viewCell);
+                    if (viewIndex == jokesCollection.Count - 1)                     {                         var page = (jokesCollection.Count / 10);                         //skip already shown, add new ones                         for (int i = page * 10; i < (page * 10) + 10; i++)                         {                             jokesCollection.Add(jokeDisplay.value.ElementAt(i));                         }                      } 
+
+                };
                 Content = listViewJson;
             }
             catch (InvalidCastException e)
