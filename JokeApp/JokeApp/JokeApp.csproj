@@ -33,6 +33,7 @@
     <Compile Include="JokeList.cs" />
     <Compile Include="Joke.cs" />
     <Compile Include="JokeDetail.cs" />
+    <Compile Include="PullToRefresh.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
