@@ -1,0 +1,1 @@
+﻿using System; using Xamarin.Forms;  namespace JokeApp {     public class Connection : ContentPage     {         public Connection()         {             var stack = new StackLayout();             var label = new Label             {                 Text = "No Connection"             };              stack.Children.Add(label);                  Content = stack;         }     } }

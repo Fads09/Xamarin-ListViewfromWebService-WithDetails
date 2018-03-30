@@ -109,6 +109,18 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\MonoAndroid10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\MonoAndroid10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.WifiInfo.Abstractions">
+      <HintPath>..\packages\Plugin.WifiInfo.1.0.0\lib\MonoAndroid10\Plugin.WifiInfo.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.WifiInfo">
+      <HintPath>..\packages\Plugin.WifiInfo.1.0.0\lib\MonoAndroid10\Plugin.WifiInfo.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JokeApp\JokeApp.csproj">
